@@ -1,0 +1,6 @@
+torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu115
+cython
+opencv-python 
+pillow 
+pycocotools 
+matplotlib 

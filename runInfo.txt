@@ -1,0 +1,8 @@
+pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu115
+
+# Test
+python eval.py --trained_model=weights/yolact_resnet50_23_5000.pth --score_threshold=0.5 --top_k=15 --video_multiframe=8 --video="\Users\Fonchi\Documents\ITG\Proyectos\VideosPellet\Test1.mp4" --display_fps
+
+# Train
+python train.py --config=yolact_resnet50_config --batch_size=1 --save_interval 5000
+
