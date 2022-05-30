@@ -377,8 +377,12 @@ def train():
                     #compute_validation_map(epoch, iteration, yolact_net, val_dataset, log if args.log else None)
                 
                     #temp_map = eval_script.evaluate(yolact_net, val_dataset, train_mode=True, flag=True)[1]
-                    temp_map = compute_validation_map(epoch, iteration, yolact_net, val_dataset, True , log if args.log else None)
+                    temp_map, valinfo = compute_validation_map(epoch, iteration, yolact_net, val_dataset, True , log if args.log else None)
                     print("temp_map: ",temp_map)
+                    BestEpoch = str(args.save_folder) + "/BestEpoch"
+                    arch = open(BestEpoch+".txt", "w")
+                    arch.write(str(valinfo))
+                    arch.close()
                     yolact_net.train()
                     if best_map < temp_map:
                         best_map = temp_map
@@ -520,7 +524,7 @@ def compute_validation_map(epoch, iteration, yolact_net, dataset, flg=False , lo
             if log is not None:
                 log.log('val', val_info, elapsed=(end - start), epoch=epoch, iter=iteration)
             #yolact_net.train()
-            return bst_map
+            return bst_map , val_info
 
             
         

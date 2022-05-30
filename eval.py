@@ -1023,6 +1023,7 @@ def calc_map(ap_data,flag=False):
     for iou_type in ('box', 'mask'):
         all_maps[iou_type]['all'] = 0 # Make this first in the ordereddict
         for i, threshold in enumerate(iou_thresholds):
+            mAP1 = sum(aps[1][iou_type]) / len(aps[1][iou_type]) * 100 if len(aps[i][iou_type]) > 0 else 0
             mAP = sum(aps[i][iou_type]) / len(aps[i][iou_type]) * 100 if len(aps[i][iou_type]) > 0 else 0
             all_maps[iou_type][int(threshold*100)] = mAP
         all_maps[iou_type]['all'] = (sum(all_maps[iou_type].values()) / (len(all_maps[iou_type].values())-1))
@@ -1033,7 +1034,7 @@ def calc_map(ap_data,flag=False):
     all_maps = {k: {j: round(u, 2) for j, u in v.items()} for k, v in all_maps.items()}
     if flag:
         # return all_maps[iou_type]['all'] if want save best mask ; mAP for best mAP
-        return all_maps,mAP
+        return all_maps, mAP1
     else:
         return all_maps
 
