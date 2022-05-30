@@ -5,7 +5,7 @@
      ╚████╔╝ ██║   ██║██║     ███████║██║        ██║   
       ╚██╔╝  ██║   ██║██║     ██╔══██║██║        ██║   
        ██║   ╚██████╔╝███████╗██║  ██║╚██████╗   ██║   
-       ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝   ╚═╝ 
+       ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝   ╚═╝    fonchi
 ```
 
 A simple, fully convolutional model for real-time instance segmentation. This is the code for our papers:
